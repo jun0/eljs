@@ -78,6 +78,7 @@ function do_init_elm() {
   //'sl_helpstyle',
   'sl_hs',
   'cb_echo',
+  'cb_rtecho',
   ////
   'ta_userdef_im', 'dv_userdef_im',
   'ta_userdef_lt', 'dv_userdef_lt',
@@ -126,6 +127,9 @@ function do_init_config() {
   //// YYY ZZZ
   do_init_config_sub2(el.hsid, el.ck.get('hs'), elm.sl_hs);
   elm.cb_echo.checked = (el.ck.get('echo') == 'true');
+
+  // Change this to make rtecho on by default
+  elm.cb_rtecho.checked = (el.ck.get('rtecho') == 'true');
   // YYY: manipulate CSS here
 
   elm.cb_shuffle.checked = (el.ck.get('shuffle') == 'true');
@@ -344,6 +348,37 @@ function do_input_start(s) {
 }
 
 // ===================================================================
+
+function update_rtecho(e) {
+  input = document.getElementById ('tx_stdin');
+  var s = '';
+  var p = document.getElementById ('p_rtecho');
+  var a = input.value;
+  var r = new Array();
+
+  for (var i = 0; i+1 < a.length; i++) {
+    if (a[i] == ' ') {
+      s += ' ';
+    }
+    else {
+      var keys = "" + a[i] + a[i+1];
+      var st = el.decodech_internal(keys);
+      console.log (keys, ":", st, ":", s);
+      s += st ? st : keys;
+      i++;
+    }
+  }
+
+  if (i == a.length-1) {
+    if (a[i] == ' ')
+      s += ' ';
+    else
+      s += '.';
+  }
+
+  var res = st; // el.lcs.match(r, s).res;
+  p.textContent = s;
+}
 
 function do_input_text(s) {
   el.lstimeend = (new Date()).getTime();
@@ -760,6 +795,13 @@ function do_focus_input() {
 
 function do_cb_echo() {
   el.ck.set('echo', elm.cb_echo.checked);
+  do_ck(); // el.ck.write();
+
+  do_focus_input();
+}
+
+function do_cb_rtecho() {
+  el.ck.set('rtecho', elm.cb_rtecho.checked);
   do_ck(); // el.ck.write();
 
   do_focus_input();

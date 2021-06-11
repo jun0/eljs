@@ -305,12 +305,18 @@ function do_img_preload() {
  -->
 <!-- エコーバック -->
  &emsp;
+ <input type="checkbox" id="cb_rtecho" name="cb_rtecho" value="true"
+        checked="true"
+        title="入力をエコーバックします"
+        onclick="do_cb_rtecho();" />
+ <label for="cb_rtecho" title="入力をエコーバックします"
+  >エコー</label>
  <input type="checkbox" id="cb_echo" name="cb_echo" value="false"
   title="入力キーをエコーバックします"
   accesskey="e"
-  onclick="do_cb_echo();">
+  onclick="do_cb_echo();" />
  <label for="cb_echo" title="入力キーをエコーバックします"
-  >エコー(<span class="accesskey">E</span>)</label>
+  >キーエコー(<span class="accesskey">E</span>)</label>
 </td>
 </tr>
 
@@ -583,6 +589,8 @@ function do_img_preload() {
   style="margin-bottom: 4px;"></div>
 <span>
 <!-- 入力欄 -->
+<p id="p_rtecho" style="font-size:large;">
+</p>
 <!-- XXX -->
  <input type="text" size="70" id="tx_stdin" name="tx_stdin"
   lang="en"
@@ -594,7 +602,8 @@ function do_img_preload() {
   accesskey="j"
   onfocus="with (this.style) { color = backgroundColor = '#d0f0ff'; } if (elm.cb_echo.checked) { this.style.color = 'black'; }"
   onblur=" with (this.style) { color = backgroundColor = 'white'; } if (elm.cb_echo.checked) { this.style.color = 'black'; }"
-  value="">
+  oninput="if (elm.cb_rtecho.checked || el.mode == 'start') { update_rtecho(event); }"
+        value="">
 <!-- 送信 -->
  <input type="submit" value="Return(M)" id="sb_cr"
   title="リターンキーを押します"

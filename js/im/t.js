@@ -1403,16 +1403,16 @@
   // ===================================================================
   // make decodetable
 
-  // im.decodetable = new Object();
-  // im.ndefs = 0;
-  // for (var kanji in im.encodetable) {
-  //   // avoid double definition
-  //   if (im.decodetable[im.encodetable[kanji]] != null) {
-  //     continue;
-  //   }
-  //   im.decodetable[im.encodetable[kanji]] = kanji;
-  //   im.ndefs += 1;
-  // }
+  im.decodetable = new Object();
+  im.ndefs = 0;
+  for (var kanji in im.encodetable) {
+    // avoid double definition
+    if (im.decodetable[im.encodetable[kanji]] != null) {
+      continue;
+    }
+    im.decodetable[im.encodetable[kanji]] = kanji;
+    im.ndefs += 1;
+  }
 
   // ===================================================================
   // add entry

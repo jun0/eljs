@@ -139,7 +139,7 @@ KANSAKU.prototype.userdef = function(srctext) {
       var ch = RegExp.$1;
       var st = RegExp.$2;
       this.im.encodetable[ch] = st;
-      // this.im.decodetable[st] = ch;
+      this.im.decodetable[st] = ch;
       //n += 1;
     }
     // ----------------
