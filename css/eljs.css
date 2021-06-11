@@ -237,7 +237,7 @@ span.dothelp span.st img.llap100
 {
     padding: 0px;
     margin: 0px;
-    width: 100px; /* オフライン時のせめてもの対策 … でもダメ */
+    width: 115px; /* オフライン時のせめてもの対策 … でもダメ */
 }
 
 /* span.dothelp span.st img.outset { background-color: #ffcc99; } */
@@ -251,7 +251,7 @@ span.dothelp span.st img.basic  { background-color: white; }
 /* span.dothelp span.st img.basic  { background-color: #bbddbb; } */
 /* ↑ これだと、 ● より ○ が目立ってしまう気が */
 
-span.dothelp span.st img.llap100 { margin-left: -100px; }
+span.dothelp span.st img.llap100 { margin-left: -115px; }
 
 span.dothelp span.note 
 {

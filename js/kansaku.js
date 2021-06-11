@@ -461,12 +461,12 @@ KANSAKU.prototype.helpmk_dothelp = function(ob) {
   s += '<span class="ch">' + ch + '</span>';
   // st
   s += '<span class="st" title="' + ob.tooltip + '">';
-  s += '<img src="img/0/0.png" alt="0" width="100" height="40"' + attr + '>';
+  s += '<img src="img/0/0.png" alt="0" width="115" height="40"' + attr + '>';
   for (var i = 0; i < a.length; i++) {
     var fn = '' + a[i];
     //s += '<img src="img/' + fn + '.png" alt="' + fn +
     //  '" width="100" height="40" class="llap100">';
-    s += '<img src="img/' + fn + '.png" width="100" height="40" class="llap100" title="' + ob.tooltip + '">';
+    s += '<img src="img/' + fn + '.png" width="115" height="40" class="llap100" title="' + ob.tooltip + '">';
   }
   s += '</span>';		// class="st"
   if (ifoutkey) {
