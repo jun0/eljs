@@ -372,6 +372,10 @@ function update_rtecho(e) {
   if (i == a.length-1) {
     if (a[i] == ' ')
       s += ' ';
+    else if (event.inputType == 'deleteContentBackward') {
+      input.value = input.value.slice (0, -1);
+      a = a.slice (0, -1);
+    }
     else
       s += '.';
   }
